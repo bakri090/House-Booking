@@ -1,1 +1,7 @@
-<p>list works!</p>
+<div class="row">
+  @for (item of Propreties; track $index) {
+    <div class="col-md-4 p-3">
+      <app-card [Proprety]="item"></app-card>
+    </div>
+    }
+</div>

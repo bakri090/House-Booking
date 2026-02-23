@@ -1,14 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Icard } from './icard';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styles: ``
+  styleUrls: ['./card.component.css']
 })
 export class CardComponent {
-Proprety: {name: string, price: number, type: string} = {
-name: "Birla house",
-price: 150000,
-type: "Apartment"
-}
+@Input() Proprety: Icard;
 }

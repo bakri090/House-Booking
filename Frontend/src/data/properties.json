@@ -1,0 +1,9 @@
+[
+  {
+    "id": 1, "name": "Birla house", "price": 150000, "type": "Apartment"},
+    {"id": 2, "name": "Ali house", "price": 550000, "type": "Duplex"},
+    {"id": 3, "name": "Omer house", "price": 2390000, "type": "Villa"},
+    {"id": 4, "name": "Smaa", "price": 210000, "type": "Apartment"},
+    {"id": 5, "name": "Fadi", "price": 430000, "type": "Villa"},
+    {"id": 6, "name": "Omer", "price": 2390000, "type": "Duplex"}
+]
