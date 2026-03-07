@@ -1,0 +1,17 @@
+.photo-control {
+  min-height: 300px;
+  vertical-align: middle;
+  text-align: center;
+  border: 1px dashed blue;
+  margin: 5px;
+}
+.bs-datepicker-container {
+  z-index: 9999 !important;
+}
+
+.card-wrapper {
+  display: flex;
+  justify-content: center;   /* يوسّط الكارد أفقياً */
+  align-items: center;       /* يوسّطه عمودياً (اختياري) */
+  width: 100%;
+}

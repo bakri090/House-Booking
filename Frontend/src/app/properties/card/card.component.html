@@ -1,0 +1,37 @@
+<div class="card shadow-lg"  style="width: 17rem;">
+  <div class="image-wrapper">
+  @if(Proprety?.ImageUrl){
+    <!-- <img [src]="'' + Proprety.imageUrl" class="card-img-top" alt="..."> -->
+    <img src="assets/images/{{Proprety.ImageUrl}}.png" class="card-img-top" alt="...">
+
+  }@else{
+  <img src="../../../assets/images/houseDefault.png" class="card-img-top" alt="...">
+  }
+  @if(!hideIcons){
+    <ul class="list-inline member-icons animate">
+      <li class="list-inline-item">
+        <button class="btn btn-primary" routerLink="/detail/{{Proprety.Id}}">
+          <i class="far fa-edit" ></i>
+        </button>
+      </li>
+      <li class="list-inline-item">
+        <button class="btn btn-primary">
+          <i class="far fa-address-book"></i>
+        </button>
+      </li>
+    </ul>
+  }
+  </div>
+  <div class="card-body">
+    <h2 class="mb-0">{{Proprety.BHK}} BHK {{Proprety.PType}}</h2>
+    in {{Proprety.Name}}
+    <span *ngIf="Proprety.Name">,</span>
+    {{Proprety.City}}
+    <h6 class="mt-2">{{Proprety.FType}}
+    <span *ngIf="Proprety.FType !== 'Unfurnished'">Furnished</span> | Ready To Move</h6>
+    <hr class="mt-0 mb-2">
+    <h6 class="mb-0">Price: <span>{{Proprety.Price}} SAR.</span> |
+      Area: <span>{{Proprety.BuiltArea}} Sq Ft</span>
+    </h6>
+  </div>
+</div>
