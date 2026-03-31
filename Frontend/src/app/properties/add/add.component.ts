@@ -12,7 +12,7 @@ import { IProperty } from '../../model/iproperty';
 import { IPropertyBase } from '../../model/ipropertyBase';
 import { ToastrService } from 'ngx-toastr';
 import { Property as Property } from '../../model/property';
-import { HousingServiceService } from '../../services/housingService.service';
+import { HousingService } from '../../services/housing.service';
 
 @Component({
   selector: 'app-add',
@@ -44,7 +44,7 @@ export class AddComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private toast:ToastrService,
-    private house:HousingServiceService
+    private house:HousingService
   ) {}
   ngOnInit() {
     this.CreateAddPropretyForm();
@@ -88,7 +88,7 @@ export class AddComponent implements OnInit {
     });
   }
 mapProprety(){
-  this.property.Id = this.house.getAutoId();
+  this.property.Id = this.house.newPropID();
     this.property.SellRent = +this.SellRent.value;
     this.property.BHK = this.BHK.value;
     this.property.PType = this.PType.value;
@@ -197,7 +197,7 @@ mapProprety(){
     this.nextClicked = true;
    if(this.allTabsValid()){
     this.mapProprety();
-    this.house.AddProprety(this.property);
+    this.house.addProperty(this.property);
     this.toast.success('Congrats, your proprety listed succefully on our your website',"Added Success");
     console.log(this.addPropretyForm.controls);
    }else{

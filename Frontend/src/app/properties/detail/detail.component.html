@@ -1,7 +1,136 @@
-<p>detail works</p>
-<p>Selected Property is {{id}}</p>
-<button (click)="goNext()" class="btn btn-success">Go To Next</button>
-<br><br>
-<button [routerLink]="['/detail', 1]" class="btn btn-success">1</button>
-<button [routerLink]="['/detail', 2]" class="btn btn-success">2</button>
-<button routerLink="/detail/3" class="btn btn-success">3</button>
+<div class="row shadow">
+  <div class="col-sm-4 p-0">
+    <div class="card">
+      <div class="card-img-wrapper">
+        <img *ngIf="property.Image" class="card-img-top" src="assets/images/{{property?.Image}}.png">
+        <img *ngIf="!property.Image" class="card-img-top" src="assets/images/houseDefault.png">
+      </div>
+      <div class="card-body">
+        <h1 class="card-title">{{property.Name}}</h1>
+        <div>
+            <strong>{{property.BHK}} BHK {{property.PType}} @ ${{property.Price}}</strong>
+        </div>
+        <div>
+           <strong>in {{property.City}}</strong>
+        </div> <hr>
+        <div>
+            <strong>Build Area: </strong>
+            {{property.BuiltArea}} Sqft
+        </div>
+
+        <div>
+            <strong>Carpet Area: </strong>
+            {{property.CarpetArea}} Sqft
+        </div>
+        <div>
+            <strong>Furnishing Type: </strong>
+            {{property.FType}}
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="btn-group d-flex">
+          <button class="btn btn-primary">Like</button>
+          <button class="btn btn-success">Message</button>
+        </div>
+      </div>
+  </div>
+  </div>
+  <div class="col-sm-8 p-0">
+    <div class="tab-panel">
+      <tabset class="member-tabset">
+        <tab heading="Overview" [active]="true">
+          <h1>Overview</h1>
+          <div class="row">
+              <div class="col-sm-6">
+                  <div class="heading">
+                      <strong>Project Name</strong>
+                      <p>{{property.Name}}</p>
+                  </div>
+
+                  <div class="heading">
+                      <strong>Floor Number</strong>
+                      <p>{{property.FloorNo}}</p>
+                  </div>
+
+                  <div class="heading">
+                      <strong>Age of Property</strong>
+                      <p>{{property.AOP}}</p>
+                  </div>
+
+                  <div class="heading">
+                      <strong>Posession</strong>
+                      <p>{{property.Possession}}</p>
+                  </div>
+              </div>
+
+              <div class="col-sm-6">
+                  <div class="heading">
+                      <strong>Main Entrance</strong>
+                      <p>{{property.MainEntrance}}</p>
+                  </div>
+
+                  <div class="heading">
+                      <strong>Gated Community</strong>
+                      <p>{{property.Gated}}</p>
+                  </div>
+
+                  <div class="heading">
+                      <strong>Security Deposit</strong>
+                      <p>{{property.Security}}</p>
+                  </div>
+                  <div class="heading">
+                      <strong>Maintenance</strong>
+                      <p>{{property.Maintenance}}</p>
+                  </div>
+              </div>
+              <div class="col-sm-12">
+                  <div class="heading">
+                      <strong>About Property</strong>
+                      <p>{{property.Description}}</p>
+                  </div>
+              </div>
+            </div>
+        </tab>
+        <tab heading="Address">
+          <div class="col-sm-12">
+            <h1>Address</h1>
+            <div class="heading">
+                <strong>{{property.Address}}</strong><br/>
+                <strong>{{property.Address2}}</strong><br/>
+                <strong>{{property.City}}</strong>
+            </div>
+        </div>
+
+        </tab>
+        <tab heading="Photos">
+          <div class="gallery-container">
+  <swiper-container class="main-swiper"
+    thumbs-swiper=".thumbs-swiper"
+    navigation="true"
+    space-between="10">
+
+    <swiper-slide *ngFor="let img of images">
+      <img [src]="img" alt="Property Image">
+    </swiper-slide>
+  </swiper-container>
+
+  <swiper-container class="thumbs-swiper"
+    slides-per-view="4"
+    free-mode="true"
+    watch-slides-progress="true"
+    space-between="10">
+
+    <swiper-slide *ngFor="let img of images">
+      <img [src]="img" class="thumb-img">
+    </swiper-slide>
+  </swiper-container>
+</div>
+        </tab>
+        <tab heading="Contact">
+          <h1>Contact Detail</h1>
+          This should be restricted area and only registered user should be able to see seller contact details
+        </tab>
+      </tabset>
+    </div>
+  </div>
+</div>

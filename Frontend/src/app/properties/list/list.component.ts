@@ -1,8 +1,8 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { IProperty } from '../../model/iproperty';
-import { HousingServiceService } from '../../services/housingService.service';
 import { IPropertyBase } from '../../model/ipropertyBase';
 import { ActivatedRoute } from '@angular/router';
+import { HousingService } from '../../services/housing.service';
 
 @Component({
   selector: 'app-list',
@@ -13,11 +13,16 @@ import { ActivatedRoute } from '@angular/router';
 export class ListComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
-    private housingService: HousingServiceService,
+    private housingService: HousingService,
     private cdr: ChangeDetectorRef,
   ) {}
   SellRent = 1;
   Propreties: IPropertyBase[];
+  City = '';
+  SearchCity = '';
+  SortByParm ='City';
+  SortByDirection ='asc';
+  Today = new Date()
   ngOnInit() {
   this.route.url.subscribe(url => {
   const currentPath = url[0]?.path;
@@ -33,7 +38,7 @@ export class ListComponent implements OnInit {
 }
 
 loadProperties() {
-  this.housingService.getProperties(this.SellRent).subscribe({
+  this.housingService.getAllProperties(this.SellRent).subscribe({
     next: (data) => {
       this.Propreties = data;
 
@@ -50,5 +55,18 @@ loadProperties() {
   });
 }
 
+onCityFilter(){
+  this.SearchCity =this.City ;
+}
+onClear(){
+  this.SearchCity = this.City = '';
+}
+onSortDirection(){
+  if(this.SortByDirection == 'desc')
+    this.SortByDirection = 'asc'
+  else
+    this.SortByDirection = 'desc'
 
+  console.log(this.SortByDirection);
+}
 }

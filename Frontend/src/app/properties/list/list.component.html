@@ -1,5 +1,26 @@
+Current Date : {{Today | date}}
+<h2>{{City}}</h2>
+<div class="search">
+  <div class="input-group w-75">
+
+
+  <input type="text" class="form-control w-50" [(ngModel)]="City" aria-label="">
+  <button class="btn btn-outline-success" (click)="onCityFilter()" type="button">Search</button>
+  <button class="btn btn-outline-secondary" (click)="onClear()" type="button">Clear</button>
+  <label class="input-group-text ms-3" for="inputGroupSelect01">Sort</label>
+  <select [(ngModel)]="SortByParm" class="form-select">
+    <option selected value="City">City</option>
+    <option value="Price">Price</option>
+  </select>
+  <button class="btn btn-outline-secondary" (click)="onSortDirection()" type="button">
+    <i *ngIf="SortByDirection==='asc'" class="fas fa-sort-alpha-down"></i>
+    <i *ngIf="SortByDirection==='desc'" class="fas fa-sort-alpha-up"></i>
+  </button>
+</div>
+
+</div>
 <div class="row">
-  @for (item of Propreties; track $index) {
+  @for (item of Propreties|filter:SearchCity:SortByParm| sort :[SortByParm,SortByDirection]; track $index) {
     <div class="col-md-4 p-3">
       <app-card [Proprety]="item"></app-card>
     </div>
