@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using WepApi.Data;
+using WepApi.Interfaces;
+using WepApi.Repos;
 
 namespace WepApi
 {
@@ -13,6 +17,11 @@ namespace WepApi
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddCors();
+            builder.Services.AddDbContext<DataContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 
             var app = builder.Build();
 
@@ -24,7 +33,7 @@ namespace WepApi
             }
 
             app.UseHttpsRedirection();
-
+            app.UseCors(c => c.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthorization();
 
 

@@ -12,7 +12,9 @@ import { IPropertyBase } from '../model/ipropertyBase';
 })
 export class HousingService {
   constructor(private http: HttpClient) {}
-
+getAllCities(): Observable<string[]> {
+  return this.http.get<string[]>('http://localhost:5066/api/city');
+}
   getProperty(id: number) {
     return this.getAllProperties().pipe(
       map((propertiesArray) => {

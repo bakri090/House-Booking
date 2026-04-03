@@ -26,6 +26,7 @@ export class AddComponent implements OnInit {
   addPropretyForm: FormGroup;
   nextClicked: boolean = false;
   property = new Property();
+  cityList: any[] = [];
   PropretyView: IPropertyBase = {
     Id: null,
     Name: null,
@@ -35,7 +36,7 @@ export class AddComponent implements OnInit {
     FType: null,
     BHK: null,
     BuiltArea: null,
-    City: null,
+    City: '',
     RTM: null,
   };
   propretyType = ['House', 'Apartment', 'Duplex'];
@@ -54,7 +55,10 @@ export class AddComponent implements OnInit {
         ...val.PriceInfo,
       };
     });
-    console.log(this.BasicInfo.value);
+    this.house.getAllCities().subscribe((data)=>{
+      this.cityList = data;
+      console.log(this.cityList);
+    });
   }
   CreateAddPropretyForm() {
     this.addPropretyForm = this.fb.group({
