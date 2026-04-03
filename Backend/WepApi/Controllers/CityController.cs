@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WepApi.Data;
+using WepApi.Dtos;
 using WepApi.Interfaces;
 using WepApi.Model;
 using WepApi.Repos;
@@ -21,14 +22,27 @@ public class CityController : ControllerBase
 	[HttpGet]
 	public async Task<IActionResult> getAll()
 	{
-		return Ok(await unitOfWork.CityRepository.GetAllAsync());
+		var cities = await unitOfWork.CityRepository.GetAllAsync();
+		var citiesDto = from c in cities
+						select new CityDto
+						{
+							Id = c.Id,
+							Name = c.Name
+						};
+		return Ok(citiesDto);
 	}
 	[HttpPost()]
-	public async Task<IActionResult> add([FromBody] City city)
+	public async Task<IActionResult> add([FromBody] CityDto city)
 	{
-		unitOfWork.CityRepository.Add(city);
+		City cityToAdd = new City
+		{
+			Name = city.Name,
+			LastUpdatedBy = 1, // Replace with actual user ID
+			LastUpdatedOn = DateTime.UtcNow
+		};
+		unitOfWork.CityRepository.Add(cityToAdd);
 		await unitOfWork.SaveAsync();
-		return Ok(city);
+		return StatusCode(201, new { message = "City added successfully" });
 	}
 	[HttpDelete("{id}")]
 	public async Task<IActionResult> delete(int id)
