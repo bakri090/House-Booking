@@ -9,6 +9,7 @@ namespace WepApi.Model
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
+        public string? Country { get; set; } 
         public int LastUpdatedBy { get; set; }
         public DateTime LastUpdatedOn { get; set; }
     }

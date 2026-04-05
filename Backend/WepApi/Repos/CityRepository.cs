@@ -12,10 +12,19 @@ namespace WepApi.Repos
     {
       this._context = context;
     }
+    public async Task<IEnumerable<City>> GetAllAsync()
+    {
+      return await _context.Cities.ToListAsync();
+    }
     public void Add(City city)
-        {
-            _context.Cities.Add(city);
-        }
+    {
+      _context.Cities.Add(city);
+    }
+
+    public async Task<City?> Update(int id)
+    {
+      return await _context.Cities.FindAsync(id);
+    }
 
     public void Delete(int id)
     {
@@ -26,9 +35,5 @@ namespace WepApi.Repos
       }
     }
 
-    public async Task<IEnumerable<City>> GetAllAsync()
-    {
-      return await _context.Cities.ToListAsync();
-    }
   }
 }

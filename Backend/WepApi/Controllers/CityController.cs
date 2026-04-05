@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WepApi.Data;
@@ -13,25 +14,23 @@ namespace WepApi.Controllers;
 public class CityController : ControllerBase
 {
   
-  private readonly IUnitOfWork unitOfWork;
+  private readonly IUnitOfWork _unitOfWork;
+  private readonly IMapper _mapper;
 
-  public CityController( IUnitOfWork unitOfWork)
+  public CityController( IUnitOfWork unitOfWork, IMapper mapper)
 	{
-    this.unitOfWork = unitOfWork;
+    this._unitOfWork = unitOfWork;
+    this._mapper = mapper;
   }
 	[HttpGet]
 	public async Task<IActionResult> getAll()
 	{
-		var cities = await unitOfWork.CityRepository.GetAllAsync();
-		var citiesDto = from c in cities
-						select new CityDto
-						{
-							Id = c.Id,
-							Name = c.Name
-						};
+		var cities = await _unitOfWork.CityRepository.GetAllAsync();
+		var citiesDto = _mapper.Map<IEnumerable<CityDto>>(cities);
+						
 		return Ok(citiesDto);
 	}
-	[HttpPost()]
+	[HttpPost("post")]
 	public async Task<IActionResult> add([FromBody] CityDto city)
 	{
 		City cityToAdd = new City
@@ -40,15 +39,44 @@ public class CityController : ControllerBase
 			LastUpdatedBy = 1, // Replace with actual user ID
 			LastUpdatedOn = DateTime.UtcNow
 		};
-		unitOfWork.CityRepository.Add(cityToAdd);
-		await unitOfWork.SaveAsync();
+		_unitOfWork.CityRepository.Add(cityToAdd);
+		await _unitOfWork.SaveAsync();
 		return StatusCode(201, new { message = "City added successfully" });
 	}
-	[HttpDelete("{id}")]
+
+	[HttpPut("update/{id}")]
+	public async Task<IActionResult> update (int id, [FromBody] CityDto cityDto)
+	{
+    var cityFromDb = await _unitOfWork.CityRepository.Update(id);
+		if(cityFromDb == null)
+		return NotFound(new {message = "No city with this id"});
+
+		cityFromDb.LastUpdatedBy = 1;
+		cityFromDb.LastUpdatedOn = DateTime.UtcNow;
+		_mapper.Map(cityDto,cityFromDb);
+		await _unitOfWork.SaveAsync();
+		return StatusCode(200);
+  }
+
+[HttpPut("updateName/{id}")]
+	public async Task<IActionResult> update (int id, [FromBody] CityUpdateDto cityDto)
+	{
+    var cityFromDb = await _unitOfWork.CityRepository.Update(id);
+		if(cityFromDb == null)
+		return NotFound(new {message = "No city with this id"});
+
+		cityFromDb.LastUpdatedBy = 1;
+		cityFromDb.LastUpdatedOn = DateTime.UtcNow;
+		_mapper.Map(cityDto,cityFromDb);
+		await _unitOfWork.SaveAsync();
+		return StatusCode(200);
+  }
+
+	[HttpDelete("delete/{id}")]
 	public async Task<IActionResult> delete(int id)
 	{
-		unitOfWork.CityRepository.Delete(id);
-		await unitOfWork.SaveAsync();
+		_unitOfWork.CityRepository.Delete(id);
+		await _unitOfWork.SaveAsync();
 		return Ok(new { message = "City deleted successfully" });
 	}
 }

@@ -5,10 +5,8 @@ using System.Threading.Tasks;
 
 namespace WepApi.Dtos
 {
-    public class CityDto
+    public class CityUpdateDto
     {
-        public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
-        public string Country { get; set; } = string.Empty;
     }
 }
