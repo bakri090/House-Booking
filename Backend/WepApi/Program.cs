@@ -1,9 +1,11 @@
-using Microsoft.AspNetCore.Builder;
+using System.Net;
+using Backend.Extensions;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using WepApi.Data;
 using WepApi.Helper;
 using WepApi.Interfaces;
+using WepApi.Middlewares;
 using WepApi.Repos;
 
 namespace WepApi
@@ -26,18 +28,11 @@ namespace WepApi
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddAutoMapper(cfg => {}, typeof(AutoMapperProfiles).Assembly);
             var app = builder.Build();
-
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
-
+    
+            app.ConfigureExceptionHandler();
             app.UseHttpsRedirection();
             app.UseCors(c => c.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthorization();
-
 
             app.MapControllers();
 

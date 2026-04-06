@@ -21,7 +21,7 @@ namespace WepApi.Repos
       _context.Cities.Add(city);
     }
 
-    public async Task<City?> Update(int id)
+    public async Task<City?> UpdateAsync(int id)
     {
       return await _context.Cities.FindAsync(id);
     }

@@ -9,27 +9,31 @@ using WepApi.Model;
 using WepApi.Repos;
 
 namespace WepApi.Controllers;
+
 [Route("api/[controller]")]
 [ApiController]
 public class CityController : ControllerBase
 {
-  
-  private readonly IUnitOfWork _unitOfWork;
-  private readonly IMapper _mapper;
 
-  public CityController( IUnitOfWork unitOfWork, IMapper mapper)
+	private readonly IUnitOfWork _unitOfWork;
+	private readonly IMapper _mapper;
+
+	public CityController(IUnitOfWork unitOfWork, IMapper mapper)
 	{
-    this._unitOfWork = unitOfWork;
-    this._mapper = mapper;
-  }
+		this._unitOfWork = unitOfWork;
+		this._mapper = mapper;
+	}
+
 	[HttpGet]
 	public async Task<IActionResult> getAll()
 	{
+		throw new UnauthorizedAccessException();
 		var cities = await _unitOfWork.CityRepository.GetAllAsync();
 		var citiesDto = _mapper.Map<IEnumerable<CityDto>>(cities);
-						
+
 		return Ok(citiesDto);
 	}
+
 	[HttpPost("post")]
 	public async Task<IActionResult> add([FromBody] CityDto city)
 	{
@@ -45,32 +49,37 @@ public class CityController : ControllerBase
 	}
 
 	[HttpPut("update/{id}")]
-	public async Task<IActionResult> update (int id, [FromBody] CityDto cityDto)
+	public async Task<IActionResult> update(int id, [FromBody] CityDto cityDto)
 	{
-    var cityFromDb = await _unitOfWork.CityRepository.Update(id);
-		if(cityFromDb == null)
-		return NotFound(new {message = "No city with this id"});
+		if (id != cityDto.Id)
+			return BadRequest("update not allowed");
+
+		var cityFromDb = await _unitOfWork.CityRepository.UpdateAsync(id);
+
+		if (cityFromDb == null)
+			return NotFound(new { message = "No city with this id" });
 
 		cityFromDb.LastUpdatedBy = 1;
 		cityFromDb.LastUpdatedOn = DateTime.UtcNow;
-		_mapper.Map(cityDto,cityFromDb);
+		_mapper.Map(cityDto, cityFromDb);
 		await _unitOfWork.SaveAsync();
 		return StatusCode(200);
-  }
+	}
 
-[HttpPut("updateName/{id}")]
-	public async Task<IActionResult> update (int id, [FromBody] CityUpdateDto cityDto)
+	[HttpPut("updateName/{id}")]
+	public async Task<IActionResult> update(int id, [FromBody] CityUpdateDto cityDto)
 	{
-    var cityFromDb = await _unitOfWork.CityRepository.Update(id);
-		if(cityFromDb == null)
-		return NotFound(new {message = "No city with this id"});
 
+		var cityFromDb = await _unitOfWork.CityRepository.UpdateAsync(id);
+		if (cityFromDb == null)
+			return NotFound(new { message = "No city with this id" });
 		cityFromDb.LastUpdatedBy = 1;
 		cityFromDb.LastUpdatedOn = DateTime.UtcNow;
-		_mapper.Map(cityDto,cityFromDb);
+		_mapper.Map(cityDto, cityFromDb);
+		throw new Exception("Some unknown error occured");
 		await _unitOfWork.SaveAsync();
 		return StatusCode(200);
-  }
+	}
 
 	[HttpDelete("delete/{id}")]
 	public async Task<IActionResult> delete(int id)
@@ -79,4 +88,5 @@ public class CityController : ControllerBase
 		await _unitOfWork.SaveAsync();
 		return Ok(new { message = "City deleted successfully" });
 	}
+
 }

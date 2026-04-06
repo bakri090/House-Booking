@@ -7,6 +7,6 @@ namespace WepApi.Repos
         Task<IEnumerable<City>> GetAllAsync();
         void Add(City city);
         void Delete(int id);
-        Task<City?> Update(int id);
+        Task<City?> UpdateAsync(int id);
     }
 }
