@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace WepApi.Model
 {
-    public class City
+    public class User
     {
         public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
         [Required]
-        public required string Country { get; set; } 
-        public int LastUpdatedBy { get; set; }
-        public DateTime LastUpdatedOn { get; set; }
+        public required string UserName { get; set; }
+        [Required]
+        public required byte[] Password { get; set; }
+        [Required]
+        public required byte[] PasswordKey { get; set; }
     }
 }

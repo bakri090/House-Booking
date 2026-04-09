@@ -12,6 +12,7 @@ namespace WepApi.Repos
             this._context = context;
         }
         public ICityRepository CityRepository => new CityRepository(_context);
+        public IUserRepository UserRepository => new UserRepository(_context);
 
         public async Task<bool> SaveAsync()
         {

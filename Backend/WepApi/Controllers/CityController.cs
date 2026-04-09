@@ -1,20 +1,14 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using WepApi.Data;
 using WepApi.Dtos;
 using WepApi.Interfaces;
 using WepApi.Model;
-using WepApi.Repos;
 
 namespace WepApi.Controllers;
-
-[Route("api/[controller]")]
-[ApiController]
-public class CityController : ControllerBase
+[Authorize]
+public class CityController : BaseController
 {
-
 	private readonly IUnitOfWork _unitOfWork;
 	private readonly IMapper _mapper;
 
@@ -25,9 +19,10 @@ public class CityController : ControllerBase
 	}
 
 	[HttpGet]
+	// [AllowAnonymous]
 	public async Task<IActionResult> getAll()
 	{
-		throw new UnauthorizedAccessException();
+		// throw new UnauthorizedAccessException();
 		var cities = await _unitOfWork.CityRepository.GetAllAsync();
 		var citiesDto = _mapper.Map<IEnumerable<CityDto>>(cities);
 
@@ -41,7 +36,8 @@ public class CityController : ControllerBase
 		{
 			Name = city.Name,
 			LastUpdatedBy = 1, // Replace with actual user ID
-			LastUpdatedOn = DateTime.UtcNow
+			LastUpdatedOn = DateTime.UtcNow,
+			Country = city.Country
 		};
 		_unitOfWork.CityRepository.Add(cityToAdd);
 		await _unitOfWork.SaveAsync();
@@ -76,7 +72,6 @@ public class CityController : ControllerBase
 		cityFromDb.LastUpdatedBy = 1;
 		cityFromDb.LastUpdatedOn = DateTime.UtcNow;
 		_mapper.Map(cityDto, cityFromDb);
-		throw new Exception("Some unknown error occured");
 		await _unitOfWork.SaveAsync();
 		return StatusCode(200);
 	}
