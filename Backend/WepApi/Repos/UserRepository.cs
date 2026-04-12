@@ -2,6 +2,7 @@ using System.Security.Cryptography;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using WepApi.Data;
+using WepApi.Dtos;
 using WepApi.Interfaces;
 using WepApi.Model;
 
@@ -40,25 +41,27 @@ namespace WepApi.Repos
       return true;
     }
 
-    public void Register(string UserName, string Password)
+    public void Register(RegisterDto dto)
     {
       byte[] passwordHash, passwordKey;
       using var hmac = new HMACSHA512();
       passwordKey = hmac.Key;
-      passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(Password));
+      passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(dto.Password));
       
       var user = new User
       {
-        UserName = UserName,
+        UserName = dto.UserName,
         Password = passwordHash,
-        PasswordKey = passwordKey
+        PasswordKey = passwordKey,
+        Email = dto.Email,
+        Mobile = dto.Mobile
       };
       _context.Users.Add(user); 
     }
 
-    public async Task<bool> UserAlreadyExist(string UserName)
+    public async Task<bool> UserAlreadyExist(string email)
     {
-      return await _context.Users.AnyAsync(x => x.UserName == UserName);
+      return await _context.Users.AnyAsync(x => x.Email == email);
     }
   }
 }

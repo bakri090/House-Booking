@@ -28,11 +28,12 @@ getAllCities(): Observable<string[]> {
   }
 
   getAllProperties(SellRent?: number): Observable<Property[]> {
-    return this.http.get('data/properties.json').pipe(
+    return this.http.get<Property[]>('data/properties.json').pipe(
       map((data) => {
         const propertiesArray: Array<Property> = [];
         if (typeof window !== 'undefined') {
-          const localProperties = JSON.parse(localStorage.getItem('newProp'));
+          const newPropData = localStorage.getItem('newProp');
+          const localProperties = newPropData ? JSON.parse(newPropData) : null;
 
           if (localProperties) {
             if (SellRent) {
@@ -66,17 +67,20 @@ getAllCities(): Observable<string[]> {
     let newProp = [property];
 
     // Add new property in array if newProp alreay exists in local storage
-    if (localStorage.getItem('newProp')) {
-      newProp = [property, ...JSON.parse(localStorage.getItem('newProp'))];
+    const existingProp = localStorage.getItem('newProp');
+    if (existingProp) {
+      newProp = [property, ...JSON.parse(existingProp)];
     }
 
     localStorage.setItem('newProp', JSON.stringify(newProp));
   }
 
   newPropID() {
-    if (localStorage.getItem('PID')) {
-      localStorage.setItem('PID', String(+localStorage.getItem('PID') + 1));
-      return +localStorage.getItem('PID');
+    const pidValue = localStorage.getItem('PID');
+    if (pidValue) {
+      const newPid = String(+pidValue + 1);
+      localStorage.setItem('PID', newPid);
+      return +newPid;
     } else {
       localStorage.setItem('PID', '101');
       return 101;

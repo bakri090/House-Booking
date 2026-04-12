@@ -12,7 +12,6 @@ import { AddComponent } from './properties/add/add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
-import { UserService } from './services/user.service';
 import { HousingService } from './services/housing.service';
 import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -66,7 +65,6 @@ register();
     provideClientHydration(),
     provideHttpClient(withFetch()),
     provideAnimations(),
-    UserService,
     HousingService,
     DetailResolver
   ],

@@ -10,17 +10,18 @@ import { Inject, PLATFORM_ID } from '@angular/core'
   standalone:false
 })
 export class NavbarComponent {
-  LoggedUser:string;
+  LoggedUser: string | null = null;
 constructor(private toast:ToastrService,@Inject(PLATFORM_ID) private platformId: Object) {}
 LoggedIn(){
 if(isPlatformBrowser(this.platformId)){
-  this.LoggedUser = localStorage.getItem('token');
+  this.LoggedUser = localStorage.getItem('userName');
 return this.LoggedUser;
 }
-return null
+return null;
 }
 onLogout(){
   localStorage.removeItem('token');
+  localStorage.removeItem('userName');
   this.toast.success('Logout successful','Logout');
 }
 }

@@ -60,7 +60,7 @@
               "RelativeDocumentMoniker": "WepApi\\Controllers\\AccountController.cs",
               "ToolTip": "C:\\Users\\Lenovo_M\\Desktop\\Angular\\RentApp\\HSPA\\Backend\\WepApi\\Controllers\\AccountController.cs",
               "RelativeToolTip": "WepApi\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAnwBoAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAAAAAAAAnwCYAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-07T14:48:25.615Z",
               "EditorCaption": ""
@@ -87,7 +87,8 @@
               "RelativeToolTip": "WepApi\\Middlewares\\ExceptionMiddleware.cs",
               "ViewState": "AgIAACUAAAAAAAAAAAArwCsAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T11:09:34.986Z"
+              "WhenOpened": "2026-04-06T11:09:34.986Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

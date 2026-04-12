@@ -28,7 +28,7 @@ export class AddComponent implements OnInit {
   property = new Property();
   cityList: any[] = [];
   PropretyView: IPropertyBase = {
-    Id: null,
+    Id:null,
     Name: null,
     PType: null,
     SellRent: null,

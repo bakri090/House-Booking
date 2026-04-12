@@ -12,20 +12,20 @@ namespace WepApi.Controllers
     public class AccountController : BaseController
     {
         private readonly IUnitOfWork _ofw;
-    private readonly IConfiguration _configuration;
+        private readonly IConfiguration _configuration;
 
-    public AccountController(IUnitOfWork ofw, IConfiguration configuration)
+        public AccountController(IUnitOfWork ofw, IConfiguration configuration)
         {
             this._ofw = ofw;
-      this._configuration = configuration;
-    }
+            this._configuration = configuration;
+        }
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginDto loginDto)
         {
             var user = await _ofw.UserRepository.Authenticate(loginDto.UserName, loginDto.Password);
             if (user == null)
             {
-                return Unauthorized();
+                return Unauthorized("Invalid userName or Password");
             }
             var logRes = new LoginResDto();
             logRes.UserName = loginDto.UserName;
@@ -33,16 +33,19 @@ namespace WepApi.Controllers
             return Ok(logRes);
         }
         [HttpPost("register")]
-        public async Task<IActionResult> Register(LoginDto loginDto)
+        public async Task<IActionResult> Register(RegisterDto loginDto)
         {
-            if(await _ofw.UserRepository.UserAlreadyExist(loginDto.UserName))
+            if(loginDto.Email == null || loginDto.Email == "")
+				return BadRequest("Please insert Email field");
+
+			if (await _ofw.UserRepository.UserAlreadyExist(loginDto.Email))
             {
                 return BadRequest("User is already exist");
             }
-                _ofw.UserRepository.Register(loginDto.UserName,loginDto.Password);
-                await _ofw.SaveAsync();
-                return StatusCode(201);
-            
+            _ofw.UserRepository.Register(loginDto);
+            await _ofw.SaveAsync();
+            return StatusCode(201);
+
         }
         private string CreateJwt(User user)
         {

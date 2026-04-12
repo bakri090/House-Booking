@@ -1,11 +1,11 @@
+import { Auth } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Iuser } from '../../model/iuser';
-import { UserService } from '../../services/user.service';
+import { IuserForRegister } from '../../model/iuser';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -15,28 +15,15 @@ import { ToastrService } from 'ngx-toastr';
   standalone:false
 })
 export class RegisterComponent implements OnInit {
-  registerForm: FormGroup;
-  user: Iuser;
-  isSubmitted;
+  registerForm!: FormGroup;
+  user: IuserForRegister;
+  isSubmitted: boolean;
   constructor(
-    private userService: UserService,
+    private auth: Auth,
     private toastr: ToastrService,
     private fb: FormBuilder
   ) {}
   ngOnInit(): void {
-    // this.registerForm = new FormGroup(
-    //   {
-    //     userName: new FormControl('', Validators.required),
-    //     email: new FormControl('', [Validators.required, Validators.email]),
-    //     password: new FormControl('', [Validators.required,Validators.minLength(6)]),
-    //     confirmPassword: new FormControl('', [Validators.required,Validators.minLength(6)]),
-    //     mobile: new FormControl('', [
-    //       Validators.required,
-    //       Validators.maxLength(10),
-    //     ]),
-    //   },
-    //   this.PasswordMatchValidator,
-    // );
     this.CreateRegisterationForm();
   }
   CreateRegisterationForm() {
@@ -65,7 +52,7 @@ export class RegisterComponent implements OnInit {
       return { passwordNotMatch: true };
     }
   }
-  // getters for form controls
+  // #region getters for form controls
   get userName() {
     return this.registerForm.get('userName');
   }
@@ -81,16 +68,23 @@ export class RegisterComponent implements OnInit {
   get mobile() {
     return this.registerForm.get('mobile');
   }
-
+  // #endregion
   onSubmit() {
     this.isSubmitted = true;
     if (this.registerForm.valid) {
-      this.toastr.success('Registration successful!', 'Success');
-      this.userService.addUser(this.UserData());
-      console.log(this.registerForm.value);
-      this.registerForm.reset();
-      this.isSubmitted = false;
-      localStorage.setItem('token',this.user.userName);
+      this.auth.RegisterForm(this.UserData()).subscribe({
+        next: (val) => {
+          console.log(this.registerForm.value);
+          this.toastr.success('Registration successful!', 'Success');
+        // this.registerForm.reset();
+        this.isSubmitted = false;
+        },
+        error: (er) => {
+          console.log(er);
+          this.toastr.error(er.error, 'Error');
+        }
+      })
+
     }else{
       this.toastr.error('Please fill out the form correctly.', 'Error');
     }
