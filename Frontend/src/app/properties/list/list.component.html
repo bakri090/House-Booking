@@ -7,9 +7,9 @@ Current Date : {{Today | date}}
   <input type="text" class="form-control w-50" [(ngModel)]="City" aria-label="">
   <button class="btn btn-outline-success" (click)="onCityFilter()" type="button">Search</button>
   <button class="btn btn-outline-secondary" (click)="onClear()" type="button">Clear</button>
-  <label class="input-group-text ms-3" for="inputGroupSelect01">Sort</label>
-  <select [(ngModel)]="SortByParm" class="form-select">
-    <option selected value="City">City</option>
+  <label class="input-group-text ms-3" >Sort</label>
+  <select [(ngModel)]="SortByParm" class="form-select" >
+    <option  value="City">City</option>
     <option value="Price">Price</option>
   </select>
   <button class="btn btn-outline-secondary" (click)="onSortDirection()" type="button">

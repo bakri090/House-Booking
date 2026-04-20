@@ -8,6 +8,9 @@ namespace WepApi.Errors
 {
     public class ApiError
     {
+        public ApiError()
+        {
+        }
         public ApiError(int errorCode, string errorMessage, string? errorDetails = null)
         {
             ErrorCode = errorCode;
@@ -21,7 +24,11 @@ namespace WepApi.Errors
 
         public override string ToString()
         {
-            return JsonSerializer.Serialize(this);
+            var opt = new JsonSerializerOptions()
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            };
+            return JsonSerializer.Serialize(this,opt);
         }
     }
 }

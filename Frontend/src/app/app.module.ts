@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CardComponent } from './properties/card/card.component';
 import { NavbarComponent } from './properties/navbar/navbar.component';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { ListComponent } from './properties/list/list.component';
 import { RouterModule } from '@angular/router';
 import { DetailComponent } from './properties/detail/detail.component';
@@ -24,7 +24,10 @@ import { DetailResolver } from './properties/detail/detail-resolver';
 import { register } from 'swiper/element/bundle';
 import { FilterPipe } from './pipes/filter-pipe';
 import { SortPipe } from './pipes/sort-pipe';
-
+import { NgxSpinnerModule } from "ngx-spinner";
+import { spinnerInterceptor } from './interceptor/spinner-interceptor';
+import { httperrorInterceptor } from './interceptor/httperror-interceptor';
+import { loginInterceptor } from './interceptor/login-interceptor';
 
 register();
 @NgModule({
@@ -47,7 +50,7 @@ register();
     FormsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
-      positionClass: 'toast-top-right',
+      positionClass: 'toast-bottom-left',
       timeOut: 3000,
       closeButton: true,
       progressBar: true,
@@ -59,11 +62,12 @@ register();
     TabsModule.forRoot(),
     ButtonsModule.forRoot(),
     BsDatepickerModule.forRoot(),
-    NgbModule
+    NgbModule,
+    NgxSpinnerModule
   ],
   providers: [
     provideClientHydration(),
-    provideHttpClient(withFetch()),
+    provideHttpClient(withFetch(),withInterceptors([spinnerInterceptor,httperrorInterceptor,loginInterceptor])),
     provideAnimations(),
     HousingService,
     DetailResolver

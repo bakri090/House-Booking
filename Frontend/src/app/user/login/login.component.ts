@@ -22,10 +22,9 @@ onLogin(loginForm: NgForm){
     if(typeof window  !== 'undefined'){
       localStorage.setItem('token',response.token);
       localStorage.setItem('userName', response.userName);
+      this.toastr.success('Login successfully',"Successful")
+      this.router.navigate(['/']);
     }
-  },(error) => {
-    this.toastr.error(error.error,'Login Failed');
-    console.log(error);
   });
 }
 }

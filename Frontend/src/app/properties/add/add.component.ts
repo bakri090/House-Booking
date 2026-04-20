@@ -23,7 +23,7 @@ import { HousingService } from '../../services/housing.service';
 export class AddComponent implements OnInit {
   // @ViewChild('Form') Form: NgForm;
   @ViewChild('formTabs') formTabs?: TabsetComponent;
-  addPropretyForm: FormGroup;
+  addPropretyForm: FormGroup = {} as FormGroup;
   nextClicked: boolean = false;
   property = new Property();
   cityList: any[] = [];
@@ -247,7 +247,6 @@ mapProprety(){
         if (this.formTabs?.tabs[tabId]) {
           this.formTabs.tabs[tabId].active = true;
           this.nextClicked=false;
-          console.log('skd');
         }
       });
     }

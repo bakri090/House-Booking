@@ -16,8 +16,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
-  user: IuserForRegister;
-  isSubmitted: boolean;
+  user: IuserForRegister = {} as IuserForRegister;
+  isSubmitted: boolean = false;
   constructor(
     private auth: Auth,
     private toastr: ToastrService,
@@ -72,16 +72,13 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.isSubmitted = true;
     if (this.registerForm.valid) {
+
       this.auth.RegisterForm(this.UserData()).subscribe({
         next: (val) => {
           console.log(this.registerForm.value);
           this.toastr.success('Registration successful!', 'Success');
         // this.registerForm.reset();
         this.isSubmitted = false;
-        },
-        error: (er) => {
-          console.log(er);
-          this.toastr.error(er.error, 'Error');
         }
       })
 
