@@ -1,8 +1,8 @@
 <div class="card shadow-lg"  >
   <div class="image-wrapper">
-  @if(Proprety?.ImageUrl){
+  @if(Proprety?.image){
     <!-- <img [src]="'' + Proprety.imageUrl" class="card-img-top" alt="..."> -->
-    <img src="assets/images/{{Proprety.ImageUrl}}.png" class="card-img-top" alt="...">
+    <img src="assets/images/{{Proprety.image}}.png" class="card-img-top" alt="...">
 
   }@else{
   <img src="../../../assets/images/houseDefault.png" class="card-img-top" alt="...">
@@ -10,7 +10,7 @@
   @if(!hideIcons){
     <ul class="list-inline member-icons animate">
       <li class="list-inline-item">
-        <button class="btn btn-primary" routerLink="/detail/{{Proprety.Id}}">
+        <button class="btn btn-primary" routerLink="/detail/{{Proprety.id}}">
           <i class="far fa-edit" ></i>
         </button>
       </li>
@@ -23,15 +23,21 @@
   }
   </div>
   <div class="card-body">
-    <h2 class="mb-0">{{Proprety.BHK}} BHK {{Proprety.PType}}</h2>
-    in {{Proprety.Name}}
-    <span *ngIf="Proprety.Name">,</span>
-    {{Proprety.City}}
-    <h6 class="mt-2">{{Proprety.FType}}
-    <span *ngIf="Proprety.FType !== 'Unfurnished'">Furnished</span> | Ready To Move</h6>
+    <h2 class="mb-0">{{Proprety.bhk}} BHK {{Proprety.propertyType}}</h2>
+    in {{Proprety.name}}
+    <span *ngIf="Proprety.name">,</span>
+    {{Proprety.city}}
+    <h6 class="mt-2">{{Proprety.furnishingType}}
+    <span *ngIf="Proprety.furnishingType !== 'Unfurnished'">Furnished</span>
+    @if(Proprety.readyToMove){
+      <span>| Ready To Move</span>
+    }@else {
+      <span>| Posession: {{Proprety.estPossessionOn |date}}</span>
+    }
+  </h6>
     <hr class="mt-0 mb-2">
-    <h6 class="mb-0">Price: <span>{{Proprety.Price}} SAR.</span> |
-      Area: <span>{{Proprety.BuiltArea}} Sq Ft</span>
+    <h6 class="mb-0">Price: <span>{{Proprety.price}} SAR.</span> |
+      Area: <span>{{Proprety.builtArea}} Sq Ft</span>
     </h6>
   </div>
 </div>

@@ -3,16 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\Lenovo_M\\Desktop\\Angular\\RentApp\\HSPA\\Backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E904F8BC-75C4-44BD-851B-DF7401FAA8A1}|WepApi\\WepApi.csproj|c:\\users\\lenovo_m\\desktop\\angular\\rentapp\\hspa\\backend\\wepapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E904F8BC-75C4-44BD-851B-DF7401FAA8A1}|WepApi\\WepApi.csproj|solutionrelative:wepapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E904F8BC-75C4-44BD-851B-DF7401FAA8A1}|WepApi\\WepApi.csproj|c:\\users\\lenovo_m\\desktop\\angular\\rentapp\\hspa\\backend\\wepapi\\repos\\propertyrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E904F8BC-75C4-44BD-851B-DF7401FAA8A1}|WepApi\\WepApi.csproj|solutionrelative:wepapi\\repos\\propertyrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E904F8BC-75C4-44BD-851B-DF7401FAA8A1}|WepApi\\WepApi.csproj|c:\\users\\lenovo_m\\desktop\\angular\\rentapp\\hspa\\backend\\wepapi\\controllers\\propertycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E904F8BC-75C4-44BD-851B-DF7401FAA8A1}|WepApi\\WepApi.csproj|solutionrelative:wepapi\\controllers\\propertycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E904F8BC-75C4-44BD-851B-DF7401FAA8A1}|WepApi\\WepApi.csproj|c:\\users\\lenovo_m\\desktop\\angular\\rentapp\\hspa\\backend\\wepapi\\middlewares\\exceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E904F8BC-75C4-44BD-851B-DF7401FAA8A1}|WepApi\\WepApi.csproj|solutionrelative:wepapi\\middlewares\\exceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{E904F8BC-75C4-44BD-851B-DF7401FAA8A1}|WepApi\\WepApi.csproj|c:\\users\\lenovo_m\\desktop\\angular\\rentapp\\hspa\\backend\\wepapi\\interfaces\\ipropertyrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E904F8BC-75C4-44BD-851B-DF7401FAA8A1}|WepApi\\WepApi.csproj|solutionrelative:wepapi\\interfaces\\ipropertyrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E904F8BC-75C4-44BD-851B-DF7401FAA8A1}|WepApi\\WepApi.csproj|c:\\users\\lenovo_m\\desktop\\angular\\rentapp\\hspa\\backend\\wepapi\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E904F8BC-75C4-44BD-851B-DF7401FAA8A1}|WepApi\\WepApi.csproj|solutionrelative:wepapi\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E904F8BC-75C4-44BD-851B-DF7401FAA8A1}|WepApi\\WepApi.csproj|c:\\users\\lenovo_m\\desktop\\angular\\rentapp\\hspa\\backend\\wepapi\\errors\\apierror.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E904F8BC-75C4-44BD-851B-DF7401FAA8A1}|WepApi\\WepApi.csproj|solutionrelative:wepapi\\errors\\apierror.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E904F8BC-75C4-44BD-851B-DF7401FAA8A1}|WepApi\\WepApi.csproj|c:\\users\\lenovo_m\\desktop\\angular\\rentapp\\hspa\\backend\\wepapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E904F8BC-75C4-44BD-851B-DF7401FAA8A1}|WepApi\\WepApi.csproj|solutionrelative:wepapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E904F8BC-75C4-44BD-851B-DF7401FAA8A1}|WepApi\\WepApi.csproj|c:\\users\\lenovo_m\\desktop\\angular\\rentapp\\hspa\\backend\\wepapi\\dtos\\propertylistdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E904F8BC-75C4-44BD-851B-DF7401FAA8A1}|WepApi\\WepApi.csproj|solutionrelative:wepapi\\dtos\\propertylistdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E904F8BC-75C4-44BD-851B-DF7401FAA8A1}|WepApi\\WepApi.csproj|c:\\users\\lenovo_m\\desktop\\angular\\rentapp\\hspa\\backend\\wepapi\\model\\propertytype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E904F8BC-75C4-44BD-851B-DF7401FAA8A1}|WepApi\\WepApi.csproj|solutionrelative:wepapi\\model\\propertytype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E904F8BC-75C4-44BD-851B-DF7401FAA8A1}|WepApi\\WepApi.csproj|c:\\users\\lenovo_m\\desktop\\angular\\rentapp\\hspa\\backend\\wepapi\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,10 +45,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{E904F8BC-75C4-44BD-851B-DF7401FAA8A1}|WepApi\\WepApi.csproj|c:\\users\\lenovo_m\\desktop\\angular\\rentapp\\hspa\\backend\\wepapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{E904F8BC-75C4-44BD-851B-DF7401FAA8A1}|WepApi\\WepApi.csproj|solutionrelative:wepapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E904F8BC-75C4-44BD-851B-DF7401FAA8A1}|WepApi\\WepApi.csproj|c:\\users\\lenovo_m\\desktop\\angular\\rentapp\\hspa\\backend\\wepapi\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E904F8BC-75C4-44BD-851B-DF7401FAA8A1}|WepApi\\WepApi.csproj|solutionrelative:wepapi\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E904F8BC-75C4-44BD-851B-DF7401FAA8A1}|WepApi\\WepApi.csproj|c:\\users\\lenovo_m\\desktop\\angular\\rentapp\\hspa\\backend\\wepapi\\dtos\\loginresdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,21 +58,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Lenovo_M\\Desktop\\Angular\\RentApp\\HSPA\\Backend\\WepApi\\Program.cs",
-              "RelativeDocumentMoniker": "WepApi\\Program.cs",
-              "ToolTip": "C:\\Users\\Lenovo_M\\Desktop\\Angular\\RentApp\\HSPA\\Backend\\WepApi\\Program.cs",
-              "RelativeToolTip": "WepApi\\Program.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAAADQAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T16:54:40.542Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
@@ -63,7 +70,45 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "PropertyRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo_M\\Desktop\\Angular\\RentApp\\HSPA\\Backend\\WepApi\\Repos\\PropertyRepository.cs",
+              "RelativeDocumentMoniker": "WepApi\\Repos\\PropertyRepository.cs",
+              "ToolTip": "C:\\Users\\Lenovo_M\\Desktop\\Angular\\RentApp\\HSPA\\Backend\\WepApi\\Repos\\PropertyRepository.cs",
+              "RelativeToolTip": "WepApi\\Repos\\PropertyRepository.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAgwB8AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T15:00:41.257Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PropertyController.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo_M\\Desktop\\Angular\\RentApp\\HSPA\\Backend\\WepApi\\Controllers\\PropertyController.cs",
+              "RelativeDocumentMoniker": "WepApi\\Controllers\\PropertyController.cs",
+              "ToolTip": "C:\\Users\\Lenovo_M\\Desktop\\Angular\\RentApp\\HSPA\\Backend\\WepApi\\Controllers\\PropertyController.cs",
+              "RelativeToolTip": "WepApi\\Controllers\\PropertyController.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAnwCkAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T11:57:46.557Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo_M\\Desktop\\Angular\\RentApp\\HSPA\\Backend\\WepApi\\Program.cs",
+              "RelativeDocumentMoniker": "WepApi\\Program.cs",
+              "ToolTip": "C:\\Users\\Lenovo_M\\Desktop\\Angular\\RentApp\\HSPA\\Backend\\WepApi\\Program.cs",
+              "RelativeToolTip": "WepApi\\Program.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAQwDgAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T16:54:40.542Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "RegisterDto.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo_M\\Desktop\\Angular\\RentApp\\HSPA\\Backend\\WepApi\\Dtos\\RegisterDto.cs",
               "RelativeDocumentMoniker": "WepApi\\Dtos\\RegisterDto.cs",
@@ -76,7 +121,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "LoginResDto.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo_M\\Desktop\\Angular\\RentApp\\HSPA\\Backend\\WepApi\\Dtos\\LoginResDto.cs",
               "RelativeDocumentMoniker": "WepApi\\Dtos\\LoginResDto.cs",
@@ -88,7 +133,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo_M\\Desktop\\Angular\\RentApp\\HSPA\\Backend\\WepApi\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "WepApi\\Controllers\\AccountController.cs",
@@ -102,32 +147,69 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ApiError.cs",
-              "DocumentMoniker": "C:\\Users\\Lenovo_M\\Desktop\\Angular\\RentApp\\HSPA\\Backend\\WepApi\\Errors\\ApiError.cs",
-              "RelativeDocumentMoniker": "WepApi\\Errors\\ApiError.cs",
-              "ToolTip": "C:\\Users\\Lenovo_M\\Desktop\\Angular\\RentApp\\HSPA\\Backend\\WepApi\\Errors\\ApiError.cs",
-              "RelativeToolTip": "WepApi\\Errors\\ApiError.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBIAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T11:08:34.198Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "ExceptionMiddleware.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo_M\\Desktop\\Angular\\RentApp\\HSPA\\Backend\\WepApi\\Middlewares\\ExceptionMiddleware.cs",
               "RelativeDocumentMoniker": "WepApi\\Middlewares\\ExceptionMiddleware.cs",
               "ToolTip": "C:\\Users\\Lenovo_M\\Desktop\\Angular\\RentApp\\HSPA\\Backend\\WepApi\\Middlewares\\ExceptionMiddleware.cs",
               "RelativeToolTip": "WepApi\\Middlewares\\ExceptionMiddleware.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAWwCsAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAIA8wBcAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-06T11:09:34.986Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
+              "Title": "IPropertyRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo_M\\Desktop\\Angular\\RentApp\\HSPA\\Backend\\WepApi\\Interfaces\\IPropertyRepository.cs",
+              "RelativeDocumentMoniker": "WepApi\\Interfaces\\IPropertyRepository.cs",
+              "ToolTip": "C:\\Users\\Lenovo_M\\Desktop\\Angular\\RentApp\\HSPA\\Backend\\WepApi\\Interfaces\\IPropertyRepository.cs",
+              "RelativeToolTip": "WepApi\\Interfaces\\IPropertyRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T15:00:26.259Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ApiError.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo_M\\Desktop\\Angular\\RentApp\\HSPA\\Backend\\WepApi\\Errors\\ApiError.cs",
+              "RelativeDocumentMoniker": "WepApi\\Errors\\ApiError.cs",
+              "ToolTip": "C:\\Users\\Lenovo_M\\Desktop\\Angular\\RentApp\\HSPA\\Backend\\WepApi\\Errors\\ApiError.cs",
+              "RelativeToolTip": "WepApi\\Errors\\ApiError.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAYwBIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T11:08:34.198Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PropertyListDto.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo_M\\Desktop\\Angular\\RentApp\\HSPA\\Backend\\WepApi\\Dtos\\PropertyListDto.cs",
+              "RelativeDocumentMoniker": "WepApi\\Dtos\\PropertyListDto.cs",
+              "ToolTip": "C:\\Users\\Lenovo_M\\Desktop\\Angular\\RentApp\\HSPA\\Backend\\WepApi\\Dtos\\PropertyListDto.cs",
+              "RelativeToolTip": "WepApi\\Dtos\\PropertyListDto.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAApwAoAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T11:58:48.176Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PropertyType.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo_M\\Desktop\\Angular\\RentApp\\HSPA\\Backend\\WepApi\\Model\\PropertyType.cs",
+              "RelativeDocumentMoniker": "WepApi\\Model\\PropertyType.cs",
+              "ToolTip": "C:\\Users\\Lenovo_M\\Desktop\\Angular\\RentApp\\HSPA\\Backend\\WepApi\\Model\\PropertyType.cs",
+              "RelativeToolTip": "WepApi\\Model\\PropertyType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T12:01:58.599Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Lenovo_M\\Desktop\\Angular\\RentApp\\HSPA\\Backend\\WepApi\\appsettings.json",
               "RelativeDocumentMoniker": "WepApi\\appsettings.json",
@@ -135,8 +217,7 @@
               "RelativeToolTip": "WepApi\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-04-06T11:07:43.087Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-06T11:07:43.087Z"
             }
           ]
         }

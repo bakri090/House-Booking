@@ -75,7 +75,7 @@ namespace WepApi.Controllers
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(cliams),
-                Expires = DateTime.UtcNow.AddMinutes(30),
+                Expires = DateTime.UtcNow.AddDays(30),
                 SigningCredentials = signingCredentials
             };
             var tokenHandler = new JwtSecurityTokenHandler();

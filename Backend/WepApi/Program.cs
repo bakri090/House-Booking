@@ -54,6 +54,7 @@ namespace WepApi
       }
             app.ConfigureExceptionHandler();
             app.UseHttpsRedirection();
+      app.UseRouting();
             app.UseCors(c => c.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthentication();
             app.UseAuthorization();

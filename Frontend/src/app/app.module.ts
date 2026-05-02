@@ -28,6 +28,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { spinnerInterceptor } from './interceptor/spinner-interceptor';
 import { httperrorInterceptor } from './interceptor/httperror-interceptor';
 import { loginInterceptor } from './interceptor/login-interceptor';
+import { SellRentPipe } from './pipes/SellRent.pipe';
 
 register();
 @NgModule({
@@ -41,7 +42,8 @@ register();
     LoginComponent,
     RegisterComponent,
     FilterPipe,
-    SortPipe
+    SortPipe,
+    SellRentPipe
   ],
   imports: [
     BrowserModule,

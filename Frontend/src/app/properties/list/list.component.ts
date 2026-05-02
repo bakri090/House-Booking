@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { IPropertyBase } from '../../model/ipropertyBase';
 import { ActivatedRoute } from '@angular/router';
 import { HousingService } from '../../services/housing.service';
+import { Property } from '../../model/property';
 
 @Component({
   selector: 'app-list',
@@ -34,23 +35,23 @@ export class ListComponent implements OnInit {
 
   loadProperties() {
     this.housingService.getAllProperties(this.SellRent).subscribe({
-      next: (data) => {
+      next: (data:Property[]) => {
         this.Propreties = data;
 
         // الفحص لضمان العمل في بيئة المتصفح فقط (بسبب SSR)
-        if (typeof window !== 'undefined') {
-          // ✅ تصحيح الخطأ المطبعي من get1Item إلى getItem
-          const storedData = localStorage.getItem('AddProp');
+        // if (typeof window !== 'undefined') {
+        //   // ✅ تصحيح الخطأ المطبعي من get1Item إلى getItem
+        //   const storedData = localStorage.getItem('AddProp');
 
-          if (storedData) {
-            const newProperty = JSON.parse(storedData);
+        //   if (storedData) {
+        //     const newProperty = JSON.parse(storedData);
 
-            if (newProperty && newProperty.SellRent === this.SellRent) {
-              // إضافة العقار الجديد في بداية المصفوفة
-              this.Propreties = [newProperty, ...this.Propreties];
-            }
-          }
-        }
+        //     if (newProperty && newProperty.SellRent === this.SellRent) {
+        //       // إضافة العقار الجديد في بداية المصفوفة
+        //       this.Propreties = [newProperty, ...this.Propreties];
+        //     }
+        //   }
+        // }
 
         // إخبار أنجلر يدوياً بوجود تغيير لتجنب خطأ ExpressionChanged
         this.cdr.detectChanges();
